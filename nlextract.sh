@@ -37,7 +37,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 pushd $DIR >/dev/null
 
 NLX_HOME=.
-PROJECTETL=$PROJECT/etl
+export STETL_PROJECTETL=$PROJECT/etl
 
 # Gebruik Stetl meegeleverd met NLExtract (kan in theorie ook Stetl via pip install stetl zijn)
 if [ -z "$STETL_HOME" ]; then
@@ -46,9 +46,13 @@ fi
 
 # Nodig voor imports
 if [ -z "$PYTHONPATH" ]; then
-  export PYTHONPATH=$STETL_HOME:$NLX_HOME:$PROJECTETL
+  export PYTHONPATH=$STETL_HOME:$NLX_HOME:$STETL_PROJECTETL
 else
-  export PYTHONPATH=$STETL_HOME:$NLX_HOME:$PROJECTETL:$PYTHONPATH
+  export PYTHONPATH=$STETL_HOME:$NLX_HOME:$STETL_PROJECTETL:$PYTHONPATH
+fi
+
+if [ -z "$STETL_GFS_TEMPLATE" ]; then
+  export STETL_GFS_TEMPLATE=${STETL_PROJECTETL}/gfs/default.gfs
 fi
 
 # Default arguments/optionsproject
@@ -65,6 +69,6 @@ host_options_file=options/`hostname`.args
 
 # Uiteindelijke commando. Kan ook gewoon "stetl -c conf/etl-top10nl-v1.2.cfg -a ..." worden indien Stetl installed
 # python $STETL_HOME/stetl/main.py -c conf/etl-top10nl-v1.2.cfg -a "$pg_options temp_dir=temp max_features=$max_features gml_files=$gml_files $multi $spatial_extent"
-python $STETL_HOME/stetl/main.py -c $PROJECT/etl/conf/default.cfg -a $options_file -a "input_dir=${DATA} gfs_template=${PROJECTETL}/gfs/default.gfs"
+python $STETL_HOME/stetl/main.py -c $PROJECT/etl/conf/default.cfg -a $options_file 
 
 popd >/dev/null
