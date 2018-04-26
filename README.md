@@ -14,10 +14,19 @@ pull the stetl submodule
 git submodule update --init --recursive 
 ```
 
-
-* download data
+### setup
+* download data 
+* possibly setup a database
 * modify options/default.args to fit your needs
-* run ./nlextract.sh -p brt/top10nl -d data/top10
+
+### run
+```
+./nlextract.sh -p brt/top10nl
+```
+
+
+
+
 
 ### Structuur
 
