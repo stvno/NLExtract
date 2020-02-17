@@ -2,15 +2,15 @@
 
 
 ***********
-Brk-extract
+BRK-extract
 ***********
 
 Hieronder staat de handleiding voor het gebruik van de tools om BRK te extraheren. Deze tools
 heten kortweg ``Brk-extract`` of soms ``NLExtract-BRK``.
 
-.. NB: als je alleen interesse hebt om een PostGIS versie van de laatste BRK te hebben, kun
-   je deze ook downloaden als PostGIS dumpfile via de link http://data.nlextract.nl/brk/postgis.
-   De dump file (``.backup`` bestand)  kun je direct inlezen in PostGIS, bijv met ``PGAdminIII``.
+   NB: als je alleen interesse hebt om een PostGIS versie van de laatste BRK te hebben, kun
+   je deze ook (betaald) downloaden als PostGIS dumpfile via de link https://geotoko.nl/.
+   De dump file (``.dump`` bestand)  kun je direct inlezen in PostGIS, bijv met ``PGAdminIII``.
    Dan hoef je alle zaken hieronder niet uit te voeren :-).
 
 Om gespecialiseerde extracties bijv naar andere databases zoals Oracle te doen, neem contact op
@@ -36,7 +36,7 @@ De BRK wordt via PDOK geleverd in ZIP-bestanden. Deze worden per provincie besch
 Brk-extract downloaden
 ----------------------
 
-Vind altijd de laatste versie op: http://www.nlextract.nl/file-cabinet.
+Vind altijd de laatste versie op: https://github.com/nlextract/NLExtract/releases. De nieuwste versie staat bovenaan: kies de "real-release" nlextract zip.
 
 Omdat NLExtract voortdurend in ontwikkeling is, kun je ook de actuele broncode, een `snapshot`, downloaden
 en op dezelfde manier gebruiken als een versie:
